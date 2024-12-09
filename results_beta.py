@@ -19,7 +19,7 @@ with open(output_file, "w") as f:
 
 # Iterate through models and datasets
 for model in models:
-    for beta_val in ["1e-1", "1e1", "1e2"]:
+    for beta_val in ["1e-2","1e-1", "1e1", "1e2"]:
         for N in ["1000","3000","5000"]:
             print(f"Running model: {model}, beta_val: {beta_val}, N: {N}")
 
