@@ -13,7 +13,7 @@ Content description-
  result_beta_t1.py       Reproduces Table 1 & Table 2 for beta-VAE model configurations <br>
 
 
-Note: Different networks.py was created to modify encoder architecture according to Hierarchical VAE. 
+Note: Different networks.py file (networks_hm.py) was created to modify encoder architecture according to Hierarchical VAE. 
  
 ## Steps for replicating results-
 
