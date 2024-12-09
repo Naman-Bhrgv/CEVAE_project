@@ -4,8 +4,8 @@ Content description-
  
 .
  model/                  Contains implementations of various VAE architectures <br>
- model/hvae_mu.py        Contains implementation of Hierarchical VAE architecture.
- model/vqvae.py          Contain implementation of VQ-VAE architecture.
+ model/hvae_mu.py        Contains implementation of Hierarchical VAE architecture. <br>
+ model/vqvae.py          Contain implementation of VQ-VAE architecture. <br>
  a1.py                   Script for running different model configurations and hyperparameters <br>
  parallel_script.py      Runs multiple scripts concurrently <br>
  results_syn.py          Reproduces Figure 3 from the research paper <br>
