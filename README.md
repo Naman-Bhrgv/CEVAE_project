@@ -17,3 +17,4 @@ Note: Different networks.py file (networks_hm.py) was created to modify encoder 
  
 ## Steps for replicating results-
 
+Table 2,3,4&5 for different bvae architectures-
