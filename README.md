@@ -17,4 +17,6 @@ Note: Different networks.py file (networks_hm.py) was created to modify encoder 
  
 ## Steps for replicating results-
 
-Table 2,3,4&5 for different bvae architectures-
+To generate Table 2,3,4 and 5 values for beta-VAE architecture with different beta values, run result_beta_t1.py script. A new text file results_scores_beta_t1.txt will be generated and stored in current directory having all the results.
+
+To generate Figure 2, run result_beta.py file, all the results will be stored in results_scores_beta.txt file generated through python script. 
