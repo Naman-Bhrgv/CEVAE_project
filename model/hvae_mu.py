@@ -2,7 +2,7 @@ import torch
 from torch import nn
 import pyro
 import pyro.distributions as dist
-from model.networks import Encoder, Decoder
+from model.networks_hm import Encoder, Decoder
 
 torch.set_default_dtype(torch.float32)
 
