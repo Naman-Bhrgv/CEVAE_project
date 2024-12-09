@@ -3,7 +3,7 @@ import subprocess
 
 # Models and datasets to iterate through
 models = ["bvae"]
-datasets = ["ihdp", "synthetic"]
+datasets = ["ihdp", "synthetic", "jobs", "twins"]
 output_file = "results_scores_beta_t1.txt"
 
 # Parameters
@@ -19,7 +19,7 @@ with open(output_file, "w") as f:
 
 # Iterate through models and datasets
 for model in models:
-    for beta_val in ["1e-1", "1e1", "1e2"]:
+    for beta_val in ["1e-2","1e-1", "1e1", "1e2"]:
         for data in datasets:
             print(f"Running model: {model}, beta_val: {beta_val}, Data: {data}")
 
