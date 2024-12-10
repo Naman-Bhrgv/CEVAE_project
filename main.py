@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    assert args.model in ["cevae", "cvae", "bvae", "hvae","vqvae"]
+    assert args.model in ["cevae", "cvae", "bvae","vqvae"]
     assert args.dataset in ["ihdp", "synthetic", "jobs", "twins"]
     assert args.retain_best in ["at", "loss", None]
 
