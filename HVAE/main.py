@@ -32,7 +32,7 @@ if __name__ == "__main__":
     # NOTE: Retain best model based on validation ATE/ATT
     parser.add_argument('--retain-best', type=none_or_str, nargs='?', default=None,help='the category of the stuff')
 
-    parser.add_argument("--model", type=str, default="bvae")
+    parser.add_argument("--model", type=str, default="hvae")
 
     parser.add_argument("--dataset", type=str, default="ihdp")
     parser.add_argument("--replications", type=int, default=2)
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     parser.add_argument("--ofile",type=str,required=True)
     args = parser.parse_args()
 
-    assert args.model in ["cevae", "cvae", "bvae", "hvae","vqvae"]
+    assert args.model in ["hvae"]
     assert args.dataset in ["ihdp", "synthetic", "jobs", "twins"]
     assert args.retain_best in ["at", "loss", None]
 
