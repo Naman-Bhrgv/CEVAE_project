@@ -9,7 +9,7 @@ from model.vqvae import VQVAE
 from metrics import Statistics
 from model.hvae_mu import HierarchicalVAE
 
-MODEL_TYPES = ["cevae", "bvae", "hvae", "cvae","vqvae"]
+MODEL_TYPES = ["hvae"]
 
 class Inference(object):
     def __init__(self,
@@ -23,31 +23,12 @@ class Inference(object):
 
         assert model in MODEL_TYPES, f"model {model} not in {MODEL_TYPES}"
 
-        if model == "cevae":
-            
-            self.flag=0
-            vae = VAE(binary_features, continuous_features, z_dim,
-                    hidden_dim, hidden_layers, activation, cuda, binary=att_only or binary_outcomes)
-        elif model == "cvae":
-            
-            self.flag=0
-            vae = CVAE(binary_features, continuous_features, z_dim,
-                    hidden_dim, hidden_layers, activation, cuda, binary=att_only or binary_outcomes)
-        elif model == "bvae":
-            
-            self.flag=0
-            vae = BVAE(binary_features, continuous_features, z_dim,
-                    hidden_dim, hidden_layers, activation, cuda, beta=beta, binary=att_only or binary_outcomes)
-        elif model == "hvae":
+        
+        if model == "hvae":
             #print("Hello")
             vae = HierarchicalVAE(binary_features, continuous_features, [z_dim,z_dim],
                     hidden_dim, hidden_layers, activation, cuda, binary=att_only or binary_outcomes)
-        elif model=="vqvae":
-
-            self.flag=1
-            vae=VQVAE(binary_features, continuous_features, z_dim,
-                    hidden_dim, hidden_layers, activation, cuda,128,20,0.5)
-        
+         
         vae = vae.double()
         self.vae = vae
         self.svi = SVI(vae.model, vae.guide,
