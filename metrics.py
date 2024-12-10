@@ -47,24 +47,18 @@ class Statistics(object):
     #       Also really only seems to yield sensible numbers on binary outcomes?
     def policy_risk(self, y0, y1, lmbd: float = 0):
         y0, y1 = y0.contiguous().view(1, -1)[0], y1.contiguous().view(1, -1)[0]
-
         pi_f = y1 > (y0 + lmbd)
         p_pi_f1 = torch.sum(pi_f) / torch.numel(pi_f)
         p_pi_f0 = 1 - p_pi_f1
-
         pi_f0_t0 = ~pi_f & (1 - self.data["t"].to(torch.int))
         pi_f1_t1 = pi_f & self.data["t"].to(torch.int)
-
         # NOTE: Policy risk can be undefined if one of these sample means (expected values)
         #       is undefined (namely the VQVAE on JOBS seems to be able to do this)
-
         est_policy_risk = 1 - \
-            torch.sum(self.data["yf"] * pi_f1_t1.to(torch.float)) / max(1e-8, torch.sum(pi_f1_t1)) * p_pi_f1 - \
+            torch.sum(self.data["yf"] * pi_f1_t1.to(torch.float)) / max(1e-8,torch.sum(pi_f1_t1) * p_pi_f1) - \
             torch.sum(self.data["yf"] * pi_f0_t0.to(torch.float)) / max(1e-8, torch.sum(pi_f0_t0)) * p_pi_f0
-
         if torch.any(torch.isnan(est_policy_risk)):
             warnings.warn(f"WARNING: NaN risk policy evaluated - likely one treatment is not represented, maybe adjust lambda?")
-
         return est_policy_risk
 
     def calculate(self, y0, y1):
