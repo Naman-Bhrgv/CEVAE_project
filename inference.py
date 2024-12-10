@@ -38,9 +38,6 @@ class Inference(object):
             self.flag=0
             vae = BVAE(binary_features, continuous_features, z_dim,
                     hidden_dim, hidden_layers, activation, cuda, beta=beta, binary=att_only or binary_outcomes)
-        elif model == "hvae":
-            vae = HierarchicalVAE(binary_features, continuous_features, z_dim,
-                    hidden_dim, hidden_layers, activation, cuda, binary=att_only or binary_outcomes)
         elif model=="vqvae":
 
             self.flag=1
