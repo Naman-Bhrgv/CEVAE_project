@@ -26,6 +26,18 @@ To generate Figure 2 results for all the models, run results_syn.py file. Result
 To generate Figure 2 for beta-VAE, run result_beta.py file, all the results will be stored in results_scores_beta.txt file generated through python script.
 After that run figure_2_rep.ipynb to generate final image, where Test ATE results obtained from different models are stored in seperate list. 
 
+
+To run multiple experiments parallely , specify argument and python file in the fashion as below inside parallel_script.py file-
+
+ scripts_with_args = ["main.py", "--epochs", "1", "--batch-size", "128", "--learning-rate","1e-5","--model","vqvae","--dataset","jobs","--replications","2", "--ofile" , "op_jobs_vqvae.txt"],
+    ["main.py", "--epochs", "1", "--batch-size", "128", "--learning-rate","1e-5","--model","cevae","--dataset","jobs","--replications","2", "--ofile" , "op_jobs_cevae.txt"]
+
+Also specify the outputl files where terminal output will be stored-
+
+output_files = ["output_vqvae_jobs.txt","output_vqvae_jobs.txt"]
+
+And then run the script.
+
 To implement and replicate results for HVAE model all files are present in folder HVAE folder. Navigate to that folder and run following commands for getting results-
 
 To replicate results for Table 2-5, navigate to HVAE folder run following commands-
@@ -38,6 +50,7 @@ python main.py --model hvae --ofile hvae_synthetic.txt --dataset synthetic --epo
 
 python main.py --model hvae --ofile hvae_ihdp.txt --dataset ihdp --epochs 100 --replication 5
 
+
 To replicate results for Figure 2, run following commands-
 
 python main.py --model hvae --ofile hvae_syn_1.txt --dataset synthetic --epochs 100 --replication 5 --nsample 1000
@@ -47,4 +60,5 @@ python main.py --model hvae --ofile hvae_syn_3.txt --dataset synthetic --epochs 
 python main.py --model hvae --ofile hvae_syn_5.txt --dataset synthetic --epochs 100 --replication 5 --nsample 5000
 
 python main.py --model hvae --ofile hvae_syn_10.txt --dataset synthetic --epochs 100 --replication 5 --nsample 10000
+
 
