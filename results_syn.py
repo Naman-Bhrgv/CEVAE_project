@@ -2,7 +2,7 @@ import os
 import subprocess
 
 # Models and datasets to iterate through
-models = ["cevae", "cvae", "bvae", "vqvae"]
+models = ["cevae", "cvae", "vqvae"]
 datasets = ["ihdp", "synthetic", "jobs", "twins"]
 output_file = "results_scores_syn.txt"
 
